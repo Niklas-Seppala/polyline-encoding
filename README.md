@@ -1,1 +1,2 @@
-# polyline-encoding
+# Google polyline encoding/decoding
+## In JavaScript
