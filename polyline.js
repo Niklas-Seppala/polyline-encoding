@@ -1,14 +1,9 @@
-'use strict'
-
 const FIVE_BIT_MASK = 0x1f;
 const SIX_BITS = 0x20;
 const CHAR_OFFSET = 0x3f;
 
 export const polyline = {
-    /**
-     * 
-     * @param {Array} coords 
-     */
+
     encode: function(coords) {
         let charArr = [];
         let lastLat = 0;
@@ -25,10 +20,6 @@ export const polyline = {
         return String.fromCharCode(...charArr);
     },
 
-    /**
-     * 
-     * @param {string} encodedStr 
-     */
     decode: function(encodedStr) {
         const coords = [];
 
@@ -58,11 +49,6 @@ export const polyline = {
     }
 }
 
-/**
- * 
- * @param {number[]} charArr 
- * @param {number} coord 
- */
 function encodeCoord(charArr, coord) {
     let remaining = (coord & 1) == 1 ? ~(coord) << 1 : coord << 1;
     while (remaining >= SIX_BITS) {
